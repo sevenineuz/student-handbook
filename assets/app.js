@@ -3,6 +3,24 @@
   var body = document.body;
   try { localStorage.setItem('hb-lang', HB.lang); } catch (e) {}
 
+  /* ---- design: Kids & Teens / Adults ---- */
+  function syncTheme() {
+    var cur = document.documentElement.dataset.theme === 'adult' ? 'adult' : 'kids';
+    document.querySelectorAll('[data-set-theme]').forEach(function (b) {
+      b.setAttribute('aria-pressed', b.dataset.setTheme === cur);
+    });
+  }
+  document.querySelectorAll('[data-set-theme]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var t = b.dataset.setTheme;
+      if (t === 'adult') document.documentElement.dataset.theme = 'adult';
+      else delete document.documentElement.dataset.theme;
+      try { localStorage.setItem('hb-theme', t); } catch (e) {}
+      syncTheme();
+    });
+  });
+  syncTheme();
+
   /* ---- mobile menu ---- */
   var menuBtn = document.querySelector('.menu-btn');
   var scrim = document.querySelector('.scrim');

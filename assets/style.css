@@ -429,7 +429,7 @@ blockquote p:last-child { margin-bottom: 0 !important; }
 .cta-icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 16px; background: rgba(255,255,255,.2); flex-shrink: 0; }
 .cta-text { display: grid; min-width: 0; }
 .cta-text strong { color: #fff !important; font-size: 19px; font-weight: 900; line-height: 1.25; }
-.cta-text small { font-size: 13.5px; font-weight: 700; opacity: .85; overflow-wrap: anywhere; }
+.cta-text small { font-size: 13.5px; font-weight: 700; opacity: .85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .cta-go { margin-left: auto; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #fff; color: var(--c-deep); flex-shrink: 0; }
 .cta-go svg { width: 20px; height: 20px; }
 
@@ -615,6 +615,162 @@ blockquote p:last-child { margin-bottom: 0 !important; }
 .pager { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 .pager-title { overflow-wrap: anywhere; hyphens: auto; }
 .stair-note, .soon { font-size: max(12.5px, 1em) !important; }
+/* ------------------------------------------------------------ design switch */
+.theme-switch { display: flex; align-items: center; gap: 4px; padding: 4px; margin: 0 4px 14px; border-radius: 16px; background: #fff; box-shadow: var(--shadow); }
+.theme-label { display: none; }
+.theme-switch button {
+  flex: 1; min-height: 38px; padding: 6px 10px; border: 0; border-radius: 12px; background: transparent;
+  font: 800 13.5px/1.2 var(--font); color: var(--g3); cursor: pointer;
+}
+.theme-switch button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.hero-theme { margin: 14px 0 0; max-width: 440px; background: rgba(255,255,255,.7); box-shadow: none; }
+.hero-theme .theme-label { display: block; padding: 0 6px 0 10px; font-size: 13px; font-weight: 800; color: var(--g3); }
+.tile-icon { display: none; }
+
+/* ============================================================ ADULTS DESIGN
+   Same content, calmer look: brand serif headings, one accent colour (the brand blue),
+   flat cards, no cartoon pictures or animation. Switched on by html[data-theme="adult"]. */
+html[data-theme="adult"] body, html[data-theme="adult"] [style*="--c:"] {
+  --c: #1B91C6 !important; --c-lt: #EEF5F9 !important; --c-deep: #16679A !important;
+}
+html[data-theme="adult"] {
+  --ink: #111827; --g1: #1F2937; --g2: #4B5563; --g3: #6B7280; --g4: #9CA3AF; --g5: #E5E7EB; --g6: #F6F6F4;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --shadow: 0 1px 2px rgba(17,24,39,.05);
+}
+html[data-theme="adult"] body { background: #F6F6F4; background-image: none; font-weight: 400; font-size: 16.5px; line-height: 1.7; }
+html[data-theme="adult"] *, html[data-theme="adult"] *::before { animation: none !important; }
+html[data-theme="adult"] .art, html[data-theme="adult"] .hero-art, html[data-theme="adult"] .tile-art,
+html[data-theme="adult"] .hello, html[data-theme="adult"] .page-hero::before, html[data-theme="adult"] .page-hero::after,
+html[data-theme="adult"] .wip-art, html[data-theme="adult"] .reward-art, html[data-theme="adult"] .letter-stamp { display: none !important; }
+
+/* headings and text */
+html[data-theme="adult"] .doc h1, html[data-theme="adult"] .doc h2 { font-family: var(--serif); font-weight: 700; letter-spacing: -.005em; }
+html[data-theme="adult"] .doc h1 { font-size: 40px; }
+html[data-theme="adult"] .doc h2 { font-size: 26px; }
+html[data-theme="adult"] .doc h2::before { display: none; }
+html[data-theme="adult"] .doc h3, html[data-theme="adult"] .doc h4 { font-weight: 650; }
+html[data-theme="adult"] .doc strong { font-weight: 650; }
+html[data-theme="adult"] a { font-weight: 600; }
+html[data-theme="adult"] .doc ul > li::marker { font-size: 1em; color: var(--g4); }
+html[data-theme="adult"] .doc hr { height: 1px; background: var(--g5); }
+
+/* frame */
+html[data-theme="adult"] .top-bar { background: rgba(255,255,255,.96); }
+html[data-theme="adult"] .doc-badge { background: var(--g6); color: var(--g2); font-weight: 600; }
+html[data-theme="adult"] .search-btn, html[data-theme="adult"] .lang-switch { border-width: 1px; border-radius: 10px; font-weight: 500; }
+html[data-theme="adult"] .lang-switch a { border-radius: 7px; font-weight: 600; }
+html[data-theme="adult"] .doc { border-radius: 14px; border: 1px solid var(--g5); box-shadow: none; }
+html[data-theme="adult"] .page-hero { background: #fff; border-bottom: 1px solid var(--g5); grid-template-columns: 1fr; padding: 40px 48px 30px; }
+html[data-theme="adult"] .home-hero { padding: 48px 48px 36px; }
+html[data-theme="adult"] .home h1 { font-size: 48px; }
+html[data-theme="adult"] .crumbs a { color: var(--g3); }
+html[data-theme="adult"] .hero-desc { font-weight: 400; color: var(--g2); }
+html[data-theme="adult"] .hero-search { border: 1px solid var(--g5); border-radius: 12px; box-shadow: none; font-weight: 400; background: var(--g6); }
+
+/* menu */
+html[data-theme="adult"] .nav a { font-weight: 500; border-radius: 10px; padding: 8px 10px; }
+html[data-theme="adult"] .nav-icon { width: 22px; height: 22px; background: none !important; color: var(--g3); border-radius: 0; }
+html[data-theme="adult"] .nav-home { background: url(mark.svg) center/20px no-repeat !important; }
+html[data-theme="adult"] .nav a[aria-current] .nav-home { background: url(mark.svg) center/20px no-repeat !important; box-shadow: none; }
+/* Playfair defaults to old-style figures (1–5 dips below the line); use lining ones */
+html[data-theme="adult"] .doc, html[data-theme="adult"] .tile-title, html[data-theme="adult"] .reward-amount,
+html[data-theme="adult"] .choice-card, html[data-theme="adult"] .letter { font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
+html[data-theme="adult"] .nav a[aria-current] { box-shadow: none; background: #fff; border: 1px solid var(--g5); }
+html[data-theme="adult"] .nav a[aria-current] .nav-icon { color: var(--c); background: none !important; }
+html[data-theme="adult"] .nav a:hover .nav-icon { transform: none; }
+html[data-theme="adult"] .kid-dot { background: var(--g4); }
+html[data-theme="adult"] .sidebar-help, html[data-theme="adult"] .theme-switch { box-shadow: none; border: 1px solid var(--g5); border-radius: 12px; }
+html[data-theme="adult"] .theme-switch button { font-weight: 600; font-family: var(--font); border-radius: 8px; }
+html[data-theme="adult"] .theme-switch button[aria-pressed="true"] { background: var(--ink); }
+html[data-theme="adult"] .hero-theme { background: var(--g6); border: 1px solid var(--g5); }
+
+/* home tiles: icon + text, no pictures */
+html[data-theme="adult"] .tile-grid { gap: 12px; }
+html[data-theme="adult"] .tile { min-height: 0; padding: 18px 18px 20px; border-radius: 12px; background: #fff; border: 1px solid var(--g5); }
+html[data-theme="adult"] .tile:hover { transform: none; box-shadow: none; border-color: var(--c); }
+html[data-theme="adult"] .tile-icon { display: grid; place-items: center; width: 40px; height: 40px; margin-bottom: 12px; border-radius: 10px; background: var(--c-lt); color: var(--c-deep); }
+html[data-theme="adult"] .tile-title { font-family: var(--serif); font-weight: 700; font-size: 19px; }
+html[data-theme="adult"] .tile-desc { font-weight: 400; }
+html[data-theme="adult"] .tile-go { position: static; align-self: flex-end; margin-top: auto; width: 24px; height: 24px; background: none; color: var(--c); }
+html[data-theme="adult"] .help-card { background: var(--ink); border-radius: 14px; }
+html[data-theme="adult"] .help-card h2 { font-family: var(--serif); }
+
+/* buttons & boxes: flat, thin borders */
+html[data-theme="adult"] .btn, html[data-theme="adult"] .cta, html[data-theme="adult"] .guide-btn,
+html[data-theme="adult"] .store-btn, html[data-theme="adult"] .map-btn { box-shadow: none !important; font-weight: 600; border-radius: 10px; }
+html[data-theme="adult"] .cta { border-radius: 12px; }
+html[data-theme="adult"] .cta-text strong { font-weight: 700; }
+html[data-theme="adult"] .callout, html[data-theme="adult"] blockquote, html[data-theme="adult"] .pass-banner,
+html[data-theme="adult"] .download, html[data-theme="adult"] .page-card, html[data-theme="adult"] .follow { border-radius: 10px; }
+html[data-theme="adult"] .callout { background: var(--g6); border-left: 3px solid var(--c); }
+html[data-theme="adult"] .callout-warn { border-left-color: #D97706; }
+html[data-theme="adult"] .callout-icon { background: transparent; width: auto; }
+html[data-theme="adult"] blockquote { background: var(--g6); font-weight: 400; }
+html[data-theme="adult"] blockquote::before { color: var(--g4); }
+html[data-theme="adult"] .faq { border-width: 1px; border-radius: 10px; }
+html[data-theme="adult"] .faq summary { font-weight: 600; }
+html[data-theme="adult"] .faq summary::before { display: none; }
+html[data-theme="adult"] .faq-body { padding-left: 18px; }
+html[data-theme="adult"] .table-wrap { border-width: 1px; border-radius: 10px; }
+html[data-theme="adult"] .tbl th { background: var(--g6); color: var(--g2); }
+html[data-theme="adult"] .merged, html[data-theme="adult"] .clause { border-width: 1px; border-radius: 12px; }
+html[data-theme="adult"] .topic { background: #fff; border: 1px solid var(--g5); border-radius: 12px; }
+html[data-theme="adult"] .letter { background: #fff; border: 1px solid var(--g5); border-radius: 12px; box-shadow: none; font-family: var(--serif); font-size: 18px; }
+html[data-theme="adult"] .letter::before { display: none; }
+
+/* coins, tests, app, referral: same information, restrained */
+html[data-theme="adult"] .reward { border: 1px solid var(--g5); border-radius: 12px; }
+html[data-theme="adult"] .reward-top { background: #fff; border-bottom: 1px solid var(--g5); padding: 26px 18px 14px; }
+html[data-theme="adult"] .reward-amount strong { font-family: var(--serif); color: var(--ink); font-size: 36px; }
+html[data-theme="adult"] .reward-amount span, html[data-theme="adult"] .reward-tag { color: var(--g3); }
+html[data-theme="adult"] .reward-tag { background: var(--g6); }
+html[data-theme="adult"] .who { background: var(--g6); font-weight: 600; }
+html[data-theme="adult"] .note { background: var(--g6); color: var(--g2) !important; border-radius: 8px; }
+html[data-theme="adult"] .ielts-ladder { background: var(--ink); border-radius: 12px; }
+html[data-theme="adult"] .step-bar { border-radius: 8px 8px 3px 3px; background: #2C4A63 !important; color: #fff !important; }
+html[data-theme="adult"] .step:last-child .step-bar { background: var(--c) !important; }
+html[data-theme="adult"] .stop-card { border-width: 1px; border-radius: 12px; background: #fff; border-color: #F3C4C4; }
+html[data-theme="adult"] .rule-grid li { border-radius: 10px; background: #fff; border: 1px solid var(--g5); }
+html[data-theme="adult"] .group-title { background: var(--g6) !important; color: var(--g2) !important; }
+html[data-theme="adult"] .map-btn { border-width: 1px; }
+html[data-theme="adult"] .review-rules { background: #FFF8EC; border: 1px solid #F3DDB5; border-radius: 12px; }
+html[data-theme="adult"] .level-card { border: 1px solid var(--g5); border-radius: 12px; }
+html[data-theme="adult"] .doc .level-name { background: #fff; color: var(--ink); font-family: var(--serif); border-bottom: 1px solid var(--g5); }
+html[data-theme="adult"] .chip { font-weight: 500; }
+html[data-theme="adult"] .feat { border-radius: 12px; background: #fff; border: 1px solid var(--g5); }
+html[data-theme="adult"] .feat-icon { background: var(--c-lt) !important; color: var(--c-deep); border-radius: 10px; }
+html[data-theme="adult"] .choice-card { border-radius: 12px; background: #fff !important; border: 1px solid var(--g5); }
+html[data-theme="adult"] .choice-card strong { color: var(--ink) !important; font-family: var(--serif); }
+html[data-theme="adult"] .choice-icon { background: var(--c); }
+html[data-theme="adult"] .choice-or { background: var(--ink); }
+html[data-theme="adult"] .path-chart, html[data-theme="adult"] .stairs, html[data-theme="adult"] .report-demo { border-radius: 12px; }
+html[data-theme="adult"] .ladder-head .who { background: rgba(255,255,255,.14); color: #fff; }
+/* level staircases (FAQ): one calm blue scale instead of the rainbow */
+html[data-theme="adult"] .stair { background: hsl(205 38% calc(30% + var(--i, 0) * 7%)) !important; box-shadow: none !important; border-radius: 8px; color: #fff; }
+html[data-theme="adult"] .stair-cefr { color: #1F3A52; }
+html[data-theme="adult"] .stair-goal { background: var(--c) !important; color: #fff; }
+html[data-theme="adult"] .stair-goal .stair-n { background: rgba(255,255,255,.3); }
+html[data-theme="adult"] .stair-level { font-weight: 700; }
+html[data-theme="adult"] .path-bar { background: var(--c); }
+html[data-theme="adult"] .soon { background: var(--g6); color: var(--g2); }
+html[data-theme="adult"] .pager-link, html[data-theme="adult"] .picker-card, html[data-theme="adult"] .picker-langs a { border-radius: 12px; }
+html[data-theme="adult"] .pager-arrow { background: var(--g6); color: var(--ink); }
+html[data-theme="adult"] .flag { background: var(--ink); border-radius: 10px; }
+html[data-theme="adult"] .picker-card { box-shadow: none; border: 1px solid var(--g5); }
+html[data-theme="adult"] .picker-art { display: none; }
+@media (max-width: 640px) {
+  html[data-theme="adult"] body { background: #fff; }
+  html[data-theme="adult"] .doc { border: 0; border-radius: 0; }
+  html[data-theme="adult"] .page-hero, html[data-theme="adult"] .home-hero { padding: 22px 18px 20px; }
+  html[data-theme="adult"] .doc h1 { font-size: 30px; }
+  html[data-theme="adult"] .home h1 { font-size: 34px; }
+  html[data-theme="adult"] .doc h2 { font-size: 23px; }
+  html[data-theme="adult"] .tile { padding: 14px; }
+  html[data-theme="adult"] .tile-title { font-size: 16.5px; }
+  html[data-theme="adult"] .pager-link { background: #fff; border: 1px solid var(--g5); }
+}
+
 /* ------------------------------------------------------------ phone layout
    On phones the page runs edge to edge like an app: no floating card, no side gutters,
    no boxes inside boxes. (Desktop is unchanged.) */
