@@ -44,6 +44,15 @@
   var cur = document.querySelector('.nav-sub [aria-current]');
   if (cur && cur.scrollIntoView && window.innerWidth > 960) cur.scrollIntoView({ block: 'nearest' });
 
+  /* ---- phones: language picker ---- */
+  var sel = document.querySelector('.lang-select');
+  if (sel) sel.addEventListener('change', function () {
+    var o = sel.options[sel.selectedIndex];
+    if (!o.value) return;
+    try { localStorage.setItem('hb-lang', o.dataset.lang); } catch (err) {}
+    location.href = o.value + (o.value.indexOf('index.html') === -1 ? location.hash : '');
+  });
+
   /* ---- language switch remembers the choice ---- */
   document.querySelectorAll('.lang-switch a[data-lang]').forEach(function (a) {
     a.addEventListener('click', function (e) {
