@@ -45,9 +45,9 @@
   if (cur && cur.scrollIntoView && window.innerWidth > 960) cur.scrollIntoView({ block: 'nearest' });
 
   /* ---- phones: language picker ---- */
-  var sel = document.querySelector('.lang-select');
-  if (sel) sel.addEventListener('change', function () {
-    var o = sel.options[sel.selectedIndex];
+  var langSelect = document.querySelector('.lang-select');   // not "sel": the search code uses that name
+  if (langSelect) langSelect.addEventListener('change', function () {
+    var o = langSelect.options[langSelect.selectedIndex];
     if (!o.value) return;
     try { localStorage.setItem('hb-lang', o.dataset.lang); } catch (err) {}
     location.href = o.value + (o.value.indexOf('index.html') === -1 ? location.hash : '');
