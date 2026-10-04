@@ -853,3 +853,14 @@ html[data-theme="adult"] .picker-art { display: none; }
   .doc { box-shadow: none; }
   .faq-body { display: block !important; }
 }
+
+/* kids family discount (Referral page) */
+.family-card { display: flex; align-items: center; gap: 16px; margin: 6px 0 14px; padding: 16px 20px; border-radius: 22px; background: #E0F5EA; }
+.family-art { width: 76px; height: 48px; color: #EC4899; flex-shrink: 0; }
+.family-card strong { display: block; font-size: 26px; font-weight: 900; line-height: 1.1; color: #157347; }
+.family-card span { font-size: 15px; font-weight: 700; color: var(--g2); }
+.choice-card.coins span:last-child { text-align: center; }
+html[data-theme="adult"] .family-card { background: #fff; border: 1px solid var(--g5); border-radius: 12px; }
+html[data-theme="adult"] .family-art { display: none; }
+html[data-theme="adult"] .family-card strong { color: var(--ink); font-family: var(--serif); font-variant-numeric: lining-nums; }
+@media (max-width: 640px) { .family-card { padding: 14px 16px; } .family-card strong { font-size: 23px; } }
