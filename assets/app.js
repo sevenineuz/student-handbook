@@ -186,4 +186,30 @@
       e.preventDefault(); openSearch();
     }
   });
+  /* ---- fade blocks up as they scroll into view (CSS keeps it to Kids & Teens) ---- */
+  if ('IntersectionObserver' in window && window.matchMedia &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var rvEls = document.querySelectorAll('.tile, .help-card, .doc-body > section, .doc-body > .choice, ' +
+      '.doc-body > .callout, .reward, .family-card, .doc-body .choice, .faq, .download');
+    if (rvEls.length) {
+      document.documentElement.classList.add('rv-on');
+      var rvIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          var el = e.target;
+          rvIO.unobserve(el);
+          el.classList.add('rv-in');
+          // hand the element back to its own hover transitions once it has arrived
+          setTimeout(function () { el.classList.remove('rv', 'rv-in'); el.style.removeProperty('--rv-d'); }, 1300);
+        });
+      }, { rootMargin: '0px 0px -6% 0px' });
+      rvEls.forEach(function (el) {
+        if (el.closest('.rv')) return;               // nested inside something already revealing
+        var sib = Array.prototype.indexOf.call(el.parentNode.children, el);
+        if (el.classList.contains('tile') || el.classList.contains('reward')) el.style.setProperty('--rv-d', (sib % 3) * 0.08 + 's');
+        el.classList.add('rv');
+        rvIO.observe(el);
+      });
+    }
+  }
 })();
