@@ -966,3 +966,30 @@ html[data-theme="adult"] .hero-quick a:hover { border-color: var(--c); transform
 @keyframes nod { 0%, 100% { transform: none; } 50% { transform: translateY(-4px) rotate(-3deg); } }
 @keyframes dot { 0%, 60%, 100% { transform: none; opacity: .75; } 30% { transform: translateY(-4px); opacity: 1; } }
 @keyframes twinkle { 0%, 100% { transform: none; opacity: 1; } 50% { transform: scale(.45) rotate(45deg); opacity: .55; } }
+
+/* Sevenine mark outlines in the home banner */
+.hero-marks { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.hm { position: absolute; display: block; height: auto; fill: none; stroke-width: 2.2; stroke-linejoin: round; }
+.hm path { vector-effect: non-scaling-stroke; }
+.hm .m9 { stroke: var(--c); }
+.hm .m7 { stroke: #EC4899; }
+.hm .mc { fill: var(--c); stroke: none; }
+.hm1 { width: 320px; right: -22px; top: -64px; opacity: .3; transform: rotate(-8deg); }
+.hm2 { width: 210px; left: -58px; bottom: -84px; opacity: .22; transform: rotate(12deg); }
+.home-hero::before, .home-hero::after { display: none; }
+@media (max-width: 640px) {
+  .hm1 { width: 210px; right: -54px; top: -40px; }
+  .hm2 { display: none; }
+}
+html[data-theme="adult"] .hero-marks { display: none; }
+@media print { .hero-marks { display: none !important; } }
+@media screen and (prefers-reduced-motion: no-preference) {
+  html:not([data-theme="adult"]) .hm path:not(.mc) { stroke-dasharray: 1; animation: draw 2.4s cubic-bezier(.45,0,.2,1) .2s both; }
+  html:not([data-theme="adult"]) .hm .m7 { animation-delay: .6s; }
+  html:not([data-theme="adult"]) .hm .mc { animation: fade-in .6s ease 2.2s both; }
+  html:not([data-theme="adult"]) .hm1 { animation: sway 16s ease-in-out 2.6s infinite; }
+  html:not([data-theme="adult"]) .hm2 { animation: sway 13s ease-in-out 2.6s infinite reverse; }
+}
+@keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes fade-in { from { opacity: 0; } }
+@keyframes sway { 50% { translate: 0 12px; rotate: 4deg; } }
