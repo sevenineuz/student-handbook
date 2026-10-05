@@ -993,3 +993,35 @@ html[data-theme="adult"] .hero-marks { display: none; }
 @keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 @keyframes fade-in { from { opacity: 0; } }
 @keyframes sway { 50% { translate: 0 12px; rotate: 4deg; } }
+
+/* Adults design: its own home banner (static) */
+.adult-mark, .adult-eyebrow { display: none; }
+html[data-theme="adult"] .home-hero {
+  grid-template-columns: minmax(0, 1fr) 200px; gap: 48px; padding: 60px 56px 52px; border-bottom: 0;
+  background: radial-gradient(circle at 86% 34%, rgba(52,120,247,.32) 0, rgba(52,120,247,0) 46%), #0F1A2E;
+}
+html[data-theme="adult"] .adult-mark { display: block; position: relative; z-index: 1; grid-column: 2; grid-row: 1; width: 100%; height: auto; }
+html[data-theme="adult"] .adult-eyebrow {
+  display: flex; align-items: center; gap: 12px; margin: 0 0 18px; font-size: 12.5px; font-weight: 600;
+  letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.62);
+}
+html[data-theme="adult"] .adult-eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+html[data-theme="adult"] .home-hero h1 { color: #fff; font-size: 54px; line-height: 1.08; }
+html[data-theme="adult"] .home-hero .hero-desc { color: rgba(255,255,255,.74); }
+html[data-theme="adult"] .home-hero .hero-desc { margin-top: 16px; }
+html[data-theme="adult"] .nav a[aria-current] .nav-icon.nav-home { background: url(mark.svg) center/20px no-repeat !important; }
+html[data-theme="adult"] .home-hero .hero-search { background: #fff; border-color: transparent; color: var(--g3); }
+html[data-theme="adult"] .home-hero .hq-label { color: rgba(255,255,255,.5); }
+html[data-theme="adult"] .home-hero .hero-quick a { background: transparent; border-color: rgba(255,255,255,.24); color: #fff; }
+html[data-theme="adult"] .home-hero .hero-quick a:hover { background: rgba(255,255,255,.07); border-color: #fff; }
+html[data-theme="adult"] .hero-marks { display: block; }
+html[data-theme="adult"] .hm1 { display: none; }
+html[data-theme="adult"] .hm2 { width: 500px; left: -150px; bottom: -230px; opacity: .08; transform: rotate(10deg); }
+html[data-theme="adult"] .hm path { stroke: #fff; }
+html[data-theme="adult"] .hm .mc { fill: #fff; stroke: none; }
+@media (max-width: 640px) {
+  html[data-theme="adult"] .home-hero { padding: 28px 20px 28px; }
+  html[data-theme="adult"] .adult-mark { width: 54px; margin-bottom: 18px; }
+  html[data-theme="adult"] .home-hero h1 { font-size: 36px; }
+  html[data-theme="adult"] .hm2 { display: block; width: 300px; left: auto; right: -110px; bottom: -150px; }
+}
