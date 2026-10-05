@@ -864,3 +864,11 @@ html[data-theme="adult"] .family-card { background: #fff; border: 1px solid var(
 html[data-theme="adult"] .family-art { display: none; }
 html[data-theme="adult"] .family-card strong { color: var(--ink); font-family: var(--serif); font-variant-numeric: lining-nums; }
 @media (max-width: 640px) { .family-card { padding: 14px 16px; } .family-card strong { font-size: 23px; } }
+
+/* kids: coins for bringing a friend (Referral page) */
+.family-card.coins { background: var(--gold-lt); }
+.family-card.coins > svg { width: 48px; height: 48px; flex-shrink: 0; }
+.family-card.coins strong { color: var(--gold-deep); }
+html[data-theme="adult"] .family-card.coins { background: #fff; }
+html[data-theme="adult"] .family-card.coins > svg { display: none; }
+html[data-theme="adult"] .family-card.coins strong { color: var(--ink); }
