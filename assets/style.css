@@ -1028,7 +1028,6 @@ html[data-theme="adult"] .hm .mc { fill: var(--ink); stroke: none; }
 
 /* Adults design: animated home banner (an exception to the Adults "no animation" rule, hence !important) */
 html[data-theme="adult"] .home-hero { background: #fff; }
-html[data-theme="adult"] .adult-mark .am7 { fill: var(--ink); filter: none; }
 html[data-theme="adult"] .home-hero.page-hero::after {
   display: block !important; z-index: 0; width: 560px; height: 560px; left: auto; right: -170px; top: -150px; bottom: auto;
   opacity: 1; background: radial-gradient(circle, rgba(52,120,247,.13) 0, rgba(52,120,247,0) 66%);
