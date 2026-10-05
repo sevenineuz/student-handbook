@@ -997,28 +997,28 @@ html[data-theme="adult"] .hero-marks { display: none; }
 /* Adults design: its own home banner (static) */
 .adult-mark, .adult-eyebrow { display: none; }
 html[data-theme="adult"] .home-hero {
-  grid-template-columns: minmax(0, 1fr) 200px; gap: 48px; padding: 60px 56px 52px; border-bottom: 0;
-  background: radial-gradient(circle at 86% 34%, rgba(52,120,247,.32) 0, rgba(52,120,247,0) 46%), #0F1A2E;
+  grid-template-columns: minmax(0, 1fr) 200px; gap: 48px; padding: 60px 56px 52px;
+  background: #fff; border-bottom: 1px solid var(--g5);
 }
 html[data-theme="adult"] .adult-mark { display: block; position: relative; z-index: 1; grid-column: 2; grid-row: 1; width: 100%; height: auto; }
 html[data-theme="adult"] .adult-eyebrow {
   display: flex; align-items: center; gap: 12px; margin: 0 0 18px; font-size: 12.5px; font-weight: 600;
-  letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.62);
+  letter-spacing: .16em; text-transform: uppercase; color: var(--g3);
 }
 html[data-theme="adult"] .adult-eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
-html[data-theme="adult"] .home-hero h1 { color: #fff; font-size: 54px; line-height: 1.08; }
-html[data-theme="adult"] .home-hero .hero-desc { color: rgba(255,255,255,.74); }
+html[data-theme="adult"] .home-hero h1 { color: var(--ink); font-size: 54px; line-height: 1.08; }
+html[data-theme="adult"] .home-hero .hero-desc { color: var(--g2); }
 html[data-theme="adult"] .home-hero .hero-desc { margin-top: 16px; }
 html[data-theme="adult"] .nav a[aria-current] .nav-icon.nav-home { background: url(mark.svg) center/20px no-repeat !important; }
-html[data-theme="adult"] .home-hero .hero-search { background: #fff; border-color: transparent; color: var(--g3); }
-html[data-theme="adult"] .home-hero .hq-label { color: rgba(255,255,255,.5); }
-html[data-theme="adult"] .home-hero .hero-quick a { background: transparent; border-color: rgba(255,255,255,.24); color: #fff; }
-html[data-theme="adult"] .home-hero .hero-quick a:hover { background: rgba(255,255,255,.07); border-color: #fff; }
+html[data-theme="adult"] .home-hero .hero-search { background: var(--g6); border-color: var(--g5); color: var(--g3); }
+html[data-theme="adult"] .home-hero .hq-label { color: var(--g3); }
+html[data-theme="adult"] .home-hero .hero-quick a { background: #fff; border-color: var(--g5); color: var(--ink); }
+html[data-theme="adult"] .home-hero .hero-quick a:hover { background: var(--g6); border-color: var(--c); }
 html[data-theme="adult"] .hero-marks { display: block; }
 html[data-theme="adult"] .hm1 { display: none; }
-html[data-theme="adult"] .hm2 { width: 500px; left: -150px; bottom: -230px; opacity: .08; transform: rotate(10deg); }
-html[data-theme="adult"] .hm path { stroke: #fff; }
-html[data-theme="adult"] .hm .mc { fill: #fff; stroke: none; }
+html[data-theme="adult"] .hm2 { width: 500px; left: -150px; bottom: -230px; opacity: .06; transform: rotate(10deg); }
+html[data-theme="adult"] .hm path { stroke: var(--ink); }
+html[data-theme="adult"] .hm .mc { fill: var(--ink); stroke: none; }
 @media (max-width: 640px) {
   html[data-theme="adult"] .home-hero { padding: 28px 20px 28px; }
   html[data-theme="adult"] .adult-mark { width: 54px; margin-bottom: 18px; }
@@ -1027,10 +1027,11 @@ html[data-theme="adult"] .hm .mc { fill: #fff; stroke: none; }
 }
 
 /* Adults design: animated home banner (an exception to the Adults "no animation" rule, hence !important) */
-html[data-theme="adult"] .home-hero { background: #0F1A2E; }
+html[data-theme="adult"] .home-hero { background: #fff; }
+html[data-theme="adult"] .adult-mark .am7 { fill: var(--ink); filter: none; }
 html[data-theme="adult"] .home-hero.page-hero::after {
   display: block !important; z-index: 0; width: 560px; height: 560px; left: auto; right: -170px; top: -150px; bottom: auto;
-  opacity: 1; background: radial-gradient(circle, rgba(52,120,247,.34) 0, rgba(52,120,247,0) 66%);
+  opacity: 1; background: radial-gradient(circle, rgba(52,120,247,.13) 0, rgba(52,120,247,0) 66%);
 }
 html[data-theme="adult"] .adult-mark path { transform-box: fill-box; transform-origin: center; }
 @media screen and (prefers-reduced-motion: no-preference) {
