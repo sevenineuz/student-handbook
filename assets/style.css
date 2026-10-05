@@ -1025,3 +1025,39 @@ html[data-theme="adult"] .hm .mc { fill: #fff; stroke: none; }
   html[data-theme="adult"] .home-hero h1 { font-size: 36px; }
   html[data-theme="adult"] .hm2 { display: block; width: 300px; left: auto; right: -110px; bottom: -150px; }
 }
+
+/* Adults design: animated home banner (an exception to the Adults "no animation" rule, hence !important) */
+html[data-theme="adult"] .home-hero { background: #0F1A2E; }
+html[data-theme="adult"] .home-hero.page-hero::after {
+  display: block !important; z-index: 0; width: 560px; height: 560px; left: auto; right: -170px; top: -150px; bottom: auto;
+  opacity: 1; background: radial-gradient(circle, rgba(52,120,247,.34) 0, rgba(52,120,247,0) 66%);
+}
+html[data-theme="adult"] .adult-mark path { transform-box: fill-box; transform-origin: center; }
+@media screen and (prefers-reduced-motion: no-preference) {
+  html[data-theme="adult"] .home-hero.page-hero::after { animation: glow 14s ease-in-out infinite !important; }
+  html[data-theme="adult"] .adult-mark { animation: float 9s ease-in-out 2.2s infinite !important; }
+  html[data-theme="adult"] .adult-mark .am9 { animation: in-9 1.2s cubic-bezier(.2,.8,.2,1) .25s both !important; }
+  html[data-theme="adult"] .adult-mark .am7 { animation: in-7 1.2s cubic-bezier(.2,.8,.2,1) .5s both !important; }
+  html[data-theme="adult"] .adult-mark .amc { animation: in-c .5s cubic-bezier(.3,1.4,.5,1) 1.45s both !important; }
+  html[data-theme="adult"] .adult-eyebrow { animation: fade-in .8s ease .05s both !important; }
+  html[data-theme="adult"] .adult-eyebrow::before { animation: line-in .9s cubic-bezier(.2,.8,.2,1) .2s both !important; }
+  html[data-theme="adult"] .home-hero h1,
+  html[data-theme="adult"] .home-hero .hero-desc,
+  html[data-theme="adult"] .home-hero .hero-search,
+  html[data-theme="adult"] .home-hero .hero-quick { animation: rise-soft .9s cubic-bezier(.2,.8,.2,1) both !important; }
+  html[data-theme="adult"] .home-hero h1 { animation-delay: .15s !important; }
+  html[data-theme="adult"] .home-hero .hero-desc { animation-delay: .3s !important; }
+  html[data-theme="adult"] .home-hero .hero-search { animation-delay: .45s !important; }
+  html[data-theme="adult"] .home-hero .hero-quick { animation-delay: .6s !important; }
+  html[data-theme="adult"] .hm2 path:not(.mc) { stroke-dasharray: 1; animation: draw 3.2s cubic-bezier(.45,0,.2,1) .3s both !important; }
+  html[data-theme="adult"] .hm2 .m7 { animation-delay: .7s !important; }
+  html[data-theme="adult"] .hm2 .mc { animation: fade-in .8s ease 2.6s both !important; }
+  html[data-theme="adult"] .hm2 { animation: sway 22s ease-in-out 3s infinite !important; }
+}
+@keyframes glow { 50% { transform: translate(-60px, 50px) scale(1.12); } }
+@keyframes float { 50% { translate: 0 -9px; } }
+@keyframes in-9 { from { opacity: 0; transform: translate(70px, -40px) rotate(14deg); } }
+@keyframes in-7 { from { opacity: 0; transform: translate(-70px, 50px); } }
+@keyframes in-c { from { opacity: 0; transform: scale(0); } }
+@keyframes line-in { from { width: 0; } }
+@keyframes rise-soft { from { opacity: 0; transform: translateY(12px); } }
