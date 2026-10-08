@@ -1061,3 +1061,14 @@ html[data-theme="adult"] .adult-mark path { transform-box: fill-box; transform-o
 @keyframes in-c { from { opacity: 0; transform: scale(0); } }
 @keyframes line-in { from { width: 0; } }
 @keyframes rise-soft { from { opacity: 0; transform: translateY(12px); } }
+
+/* prep-papers (2026-10-08): Tests page preparation guides */
+.prep-facts { margin: 0 0 22px; }
+.prep-levels { display: grid; gap: 22px; margin: 6px 0 28px; }
+.prep-level h4 { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; font-size: 18px; }
+.prep-level h4::before { display: none !important; }
+.prep-code { font-family: var(--serif); font-weight: 700; color: var(--c-deep); background: var(--c-lt); border-radius: 10px; padding: 2px 10px; }
+.prep-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.prep-grid .download { margin: 0; }
+.prep-grid .download-icon { color: var(--c-deep); }
+@media (max-width: 640px) { .prep-grid { grid-template-columns: 1fr; } }
